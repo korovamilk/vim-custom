@@ -38,7 +38,7 @@ filetype plugin indent on    " required
 
 set backspace=indent,eol,start
 syntax enable
-set number
+set nonumber
 map <silent> <F2> :set invnumber<cr>
 set paste
 set backup
