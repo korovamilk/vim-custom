@@ -4,7 +4,7 @@
 TODAY=$(date +%Y%m%d)
 VIMHOME=${HOME}/.vim
 echo "This is going to customize vim for user $USER"
-cd ~
+cd ${HOME}
 echo 
 echo "safe-copying .vim*"
 mkdir ${VIMHOME}/vim-customizer.${TODAY}.SAFE
@@ -23,7 +23,7 @@ curl -LSso ${VIMHOME}/colors/tomorrow.vim                   https://raw.githubus
 curl -LSso ${VIMHOME}/colors/tomorrow-night.vim             https://raw.githubusercontent.com/korovamilk/vim-tomorrow-theme/master/colors/tomorrow-night.vim
 curl -LSso ${VIMHOME}/colors/tomorrow-night-bright.vim      https://raw.githubusercontent.com/korovamilk/vim-tomorrow-theme/master/colors/tomorrow-night-bright.vim
 curl -LSso ${VIMHOME}/colors/tomorrow-night-eighties.vim    https://raw.githubusercontent.com/korovamilk/vim-tomorrow-theme/master/colors/tomorrow-ni-eightiesght.vim
-curl -LSso ${HOME}/.vimrc https://raw.githubusercontent.com/korovamilk/vim-custom/.vimrc
+curl -LSso ${HOME}/.vimrc https://raw.githubusercontent.com/korovamilk/vim-custom/master/.vimrc
 echo
 echo "installing vim plugins"
 vim +PluginInstall +qall
