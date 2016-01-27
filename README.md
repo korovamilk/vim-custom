@@ -14,6 +14,16 @@ the above command will:
 * download my .vimrc
 * autoinstalls all custom vim plugins (see .vimrc for updated list)
 
+Additionaly, you may want to install powerline fonts as follows:
+
+```
+git clone https://github.com/Lokaltog/powerline.git
+sudo mkdir  /usr/share/fonts/truetype/Powerline/
+sudo cp ~/powerline/font/PowerlineSymbols.otf /usr/share/fonts/truetype/Powerline/
+sudo cp ~/powerline/font/10-powerline-symbols.conf /etc/fonts/conf.d/
+sudo fc-cache -vf /usr/share/fonts/truetype/Powerline
+```
+
 Tested under:
 CentOS 6.7
 Debian 7
