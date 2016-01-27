@@ -3,7 +3,9 @@ vim customization files and scripts
 
 easy one line vim custom setup:
 
+```
 curl https://raw.githubusercontent.com/korovamilk/vim-custom/master/vim-customizer.sh | bash
+```
 
 the above command will:
 * move your existing .vim* files and directories (if any) to ${HOME}/SAFE directory
