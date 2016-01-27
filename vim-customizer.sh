@@ -4,14 +4,15 @@
 TODAY=$(date +%Y%m%d)
 VIMHOME=${HOME}/.vim
 echo "This is going to customize vim for user $USER"
-echo "creating vim directories"
-mkdir -p ${HOME}/.vim/colors/
-mkdir -p ${HOME}/SAFE/vim.backups/
-echo 
-echo "safe-copying .vim*"
-mkdir ${HOME}/SAFE/vim-customizer.${TODAY}.SAFE
-mv .vim* ${HOME}/SAFE/vim-customizer.${TODAY}.SAFE/
 echo
+echo "safe-copying .vim*"
+mkdir -p ${HOME}/SAFE/vim.backups/
+mkdir ${HOME}/SAFE/vim-customizer.${TODAY}.SAFE/
+mv ${HOME}/.vim* ${HOME}/SAFE/vim-customizer.${TODAY}.SAFE/
+echo
+echo "(re)creating vim directories"
+mkdir -p ${HOME}/.vim/colors/
+echo 
 echo "getting files"
 curl -LSso ${VIMHOME}/colors/onedark.vim https://raw.githubusercontent.com/korovamilk/onedark.vim/master/colors/onedark.vim
 git clone https://github.com/VundleVim/Vundle.vim.git ${VIMHOME}/bundle/Vundle.vim
