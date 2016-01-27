@@ -1,5 +1,6 @@
 #!/bin/bash
 # vim-customizer.sh
+# ops [at] agate [punkt] io
 # v.20160127
 TODAY=$(date +%Y%m%d)
 VIMHOME=${HOME}/.vim
