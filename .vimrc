@@ -13,6 +13,7 @@ Plugin 'VundleVim/Vundle.vim'
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'gregsexton/MatchTag'
 Plugin 'honza/vim-snippets'
 Plugin 'mhinz/vim-signify'
