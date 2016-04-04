@@ -21,7 +21,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/syntastic'
 Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'aziz/PlainTasks'
+Bundle 'elentok/plaintasks.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
