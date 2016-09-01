@@ -105,3 +105,7 @@ let indent_guides_color_change_percent = 10
 let indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
+
+""" fold comments (press SPACE to unfold)
+set fdm=expr
+set fde=getline(v:lnum)=~'^\\s*#'?1:getline(prevnonblank(v:lnum))=~'^\\s*#'?1:getline(nextnonblank(v:lnum))=~'^\\s*#'?1:0
