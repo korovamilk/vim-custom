@@ -87,7 +87,6 @@ colorscheme molokai
 "colorscheme onedark
 "colorscheme tomorrow-night
 "colorscheme tomorrow-night-bright
-"colorscheme tomorrow-night-eighties
 
 """ light color themes
 "colorscheme summerfruit256
