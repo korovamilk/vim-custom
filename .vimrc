@@ -21,6 +21,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/syntastic'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'tomasr/molokai'
 Bundle 'elentok/plaintasks.vim'
 
 " All of your Plugins must be added before the following line
@@ -40,8 +41,28 @@ filetype plugin indent on    " required
 
 set backspace=indent,eol,start
 syntax enable
+
+" F2 toggles row numbers
 set nonumber
 map <silent> <F2> :set invnumber<cr>
+
+" fold comments (press SPACE to unfold) 
+set fdm=expr
+set fde=getline(v:lnum)=~'^\\s*#'?1:getline(prevnonblank(v:lnum))=~'^\\s*#'?1:getline(nextnonblank(v:lnum))=~'^\\s*#'?1:0
+
+" CTRL+F5 toggles comment folding
+let $unrol=0
+function UnrolMe()
+if $unrol==0
+    :exe "normal zR"
+    let $unrol=1
+else
+    :exe "normal zM"
+    let $unrol=0
+endif
+endfunction
+noremap <C-F5> :call UnrolMe()<CR>
+
 set paste
 set backup
 set backupdir=~/SAFE/vim.backups
@@ -54,7 +75,7 @@ set shiftwidth=4
 set softtabstop=4
 set t_Co=256
 set laststatus=2
-let g:airline_powerline_fonts = 1 
+let g:airline_powerline_fonts = 1
 
 " jump to the last position when reopening a file
 if has("autocmd")
@@ -62,12 +83,19 @@ if has("autocmd")
 endif
 
 """ dark color themes
-colorscheme onedark
+"colorscheme onedark
 "colorscheme tomorrow-night
+colorscheme molokai
+"colorscheme paraiso
+"colorscheme badwolf
+"colorscheme coda
+"colorscheme darkburn
+"colorscheme darkZ
 
 """ light color themes
 "colorscheme summerfruit256
 "colorscheme tomorrow
+
 
 """ vim-airline themes selection
 "let g:airline_theme='bubblegum'
@@ -105,7 +133,3 @@ let indent_guides_color_change_percent = 10
 let indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
-
-""" fold comments (press SPACE to unfold)
-set fdm=expr
-set fde=getline(v:lnum)=~'^\\s*#'?1:getline(prevnonblank(v:lnum))=~'^\\s*#'?1:getline(nextnonblank(v:lnum))=~'^\\s*#'?1:0
