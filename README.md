@@ -25,10 +25,9 @@ sudo fc-cache -vf /usr/share/fonts/truetype/Powerline
 ```
 
 Tested under:  
-CentOS 6.7  
-Debian 7  
-Debian 8  
-Linux Mint 17.3  
-Linux Mint 18  
+CentOS     
+Debian  
+Linux Mint  
+FreeBSD 
 
 beware: it may not work for you and/or destroy your computer ;-)  
