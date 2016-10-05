@@ -24,6 +24,14 @@ sudo cp ~/powerline/font/10-powerline-symbols.conf /etc/fonts/conf.d/
 sudo fc-cache -vf /usr/share/fonts/truetype/Powerline
 ```
 
+Included is also a script to just update .vimrc  
+This is useful if your vim is already customized and you just want to sync small changes of vimrc on this repo  
+  
+  ```
+  curl https://raw.githubusercontent.com/korovamilk/vim-custom/master/vimrc-updater.sh | bash
+  ```
+  
+
 Tested under:  
 CentOS     
 Debian  
