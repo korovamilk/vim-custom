@@ -1,6 +1,6 @@
 """ .vimrc custom file
-""" ops [at] agate [punkt] io
-""" v.20160127
+""" ops [at] agate [punkt] pw
+""" v.20161005
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -9,7 +9,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle, required
-Plugin 'korovamilk/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
@@ -23,9 +23,9 @@ Plugin 'scrooloose/syntastic'
 Plugin 'nathanaelkane/vim-indent-guides'
 Bundle 'elentok/plaintasks.vim'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+" All Plugins must be added before the following line
+call vundle#end()
+filetype plugin indent on
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -36,7 +36,7 @@ filetype plugin indent on    " required
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 "
 " see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+" Put non-Plugin stuff after this line
 
 set backspace=indent,eol,start
 syntax enable
@@ -45,7 +45,7 @@ syntax enable
 set nonumber
 map <silent> <F2> :set invnumber<cr>
 
-" fold comments (press SPACE to unfold) 
+" fold comments (press SPACE to unfold)
 set fdm=expr
 set fde=getline(v:lnum)=~'^\\s*#'?1:getline(prevnonblank(v:lnum))=~'^\\s*#'?1:getline(nextnonblank(v:lnum))=~'^\\s*#'?1:0
 
@@ -82,19 +82,16 @@ if has("autocmd")
 endif
 
 """ dark color themes
+"colorscheme badwolf
+colorscheme molokai
 "colorscheme onedark
 "colorscheme tomorrow-night
-colorscheme molokai
-"colorscheme paraiso
-"colorscheme badwolf
-"colorscheme coda
-"colorscheme darkburn
-"colorscheme darkZ
+"colorscheme tomorrow-night-bright
+"colorscheme tomorrow-night-eighties
 
 """ light color themes
 "colorscheme summerfruit256
 "colorscheme tomorrow
-
 
 """ vim-airline themes selection
 "let g:airline_theme='bubblegum'
@@ -131,4 +128,4 @@ hi IndentGuidesEven guibg=darkgrey   ctermbg=237
 let indent_guides_color_change_percent = 10
 let indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_auto_colors = 0
+let	g:indent_guides_auto_colors = 0

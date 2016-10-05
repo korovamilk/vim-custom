@@ -15,17 +15,16 @@ echo "(re)creating vim directories"
 mkdir -p ${HOME}/.vim/colors/
 echo 
 echo "getting files"
-#git clone https://github.com/VundleVim/Vundle.vim.git ${VIMHOME}/bundle/Vundle.vim
-git clone https://github.com/korovamilk/Vundle.vim.git ${VIMHOME}/bundle/Vundle.vim
-curl -LSso ${VIMHOME}/colors/onedark.vim https://raw.githubusercontent.com/korovamilk/onedark.vim/master/colors/onedark.vim
-curl -LSso ${VIMHOME}/colors/onedark.vim                    https://raw.githubusercontent.com/korovamilk/onedark.vim/master/colors/onedark.vim
-curl -LSso ${VIMHOME}/colors/summerfruit256.vim             https://raw.githubusercontent.com/korovamilk/summerfruit256.vim/master/colors/summerfruit256.vim
-curl -LSso ${VIMHOME}/colors/tomorrow.vim                   https://raw.githubusercontent.com/korovamilk/vim-tomorrow-theme/master/colors/tomorrow.vim
-curl -LSso ${VIMHOME}/colors/tomorrow-night.vim             https://raw.githubusercontent.com/korovamilk/vim-tomorrow-theme/master/colors/tomorrow-night.vim
-curl -LSso ${VIMHOME}/colors/tomorrow-night-bright.vim      https://raw.githubusercontent.com/korovamilk/vim-tomorrow-theme/master/colors/tomorrow-night-bright.vim
-curl -LSso ${VIMHOME}/colors/tomorrow-night-eighties.vim    https://raw.githubusercontent.com/korovamilk/vim-tomorrow-theme/master/colors/tomorrow-ni-eightiesght.vim
-curl -LSso ${VIMHOME}/colors/molokai.vim					https://raw.githubusercontent.com/korovamilk/molokai/master/colors/molokai.vim
-curl -LSso ${HOME}/.vimrc https://raw.githubusercontent.com/korovamilk/vim-custom/master/.vimrc
+git clone https://github.com/VundleVim/Vundle.vim.git ${VIMHOME}/bundle/Vundle.vim
+curl -LSso ${HOME}/.vimrc									https://raw.githubusercontent.com/korovamilk/vim-custom/master/.vimrc
+curl -LSso ${VIMHOME}/colors/badwolf.vim					https://raw.githubusercontent.com/korovamilk/vim-custom/master/colors/badwolf.vim
+curl -LSso ${VIMHOME}/colors/molokai.vim					https://raw.githubusercontent.com/korovamilk/vim-custom/master/colors/molokai.vim
+curl -LSso ${VIMHOME}/colors/onedark.vim                    https://raw.githubusercontent.com/korovamilk/vim-custom/master/colors/onedark.vim
+curl -LSso ${VIMHOME}/colors/summerfruit256.vim             https://raw.githubusercontent.com/korovamilk/vim-custom/master/colors/summerfruit256.vim
+curl -LSso ${VIMHOME}/colors/tomorrow.vim                   https://raw.githubusercontent.com/korovamilk/vim-custom/master/colors/tomorrow.vim
+curl -LSso ${VIMHOME}/colors/tomorrow-night-bright.vim      https://raw.githubusercontent.com/korovamilk/vim-custom/master/colors/tomorrow-night-bright.vim
+curl -LSso ${VIMHOME}/colors/tomorrow-night-eighties.vim    https://raw.githubusercontent.com/korovamilk/vim-custom/master/colors/tomorrow-night-eighties.vim
+curl -LSso ${VIMHOME}/colors/tomorrow-night.vim             https://raw.githubusercontent.com/korovamilk/vim-custom/master/colors/tomorrow-night.vim
 echo
 echo "installing vim plugins"
 vim +PluginInstall +qall
