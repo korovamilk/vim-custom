@@ -83,9 +83,9 @@ endif
 
 """ dark color themes
 "colorscheme badwolf
-colorscheme molokai
+"colorscheme molokai
 "colorscheme onedark
-"colorscheme tomorrow-night
+colorscheme tomorrow-night
 "colorscheme tomorrow-night-bright
 
 """ light color themes
