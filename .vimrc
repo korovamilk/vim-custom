@@ -1,6 +1,6 @@
 """ .vimrc custom file
 """ ops [at] agate [punkt] pw
-""" v.20161005
+""" v.20161019
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -36,9 +36,8 @@ filetype plugin indent on
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 "
 " see :h vundle for more details or wiki for FAQ
-" Put non-Plugin stuff after this line
+" Put your non-Plugin stuff after this line
 
-set backspace=indent,eol,start
 syntax enable
 
 " F2 toggles row numbers
@@ -62,11 +61,22 @@ endif
 endfunction
 noremap <C-F5> :call UnrolMe()<CR>
 
+set autoindent
+set backspace=indent,eol,start
+set wrap
+set complete-=i
+set smarttab
+set nrformats-=octal
+
 set paste
 set backup
 set backupdir=~/SAFE/vim.backups
 set hlsearch
 set incsearch
+" Use <C-L> to clear the highlighting of :set hlsearch.
+if maparg('<C-L>', 'n') ==# ''
+  nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+endif
 set ignorecase
 set smartcase
 set tabstop=4
@@ -74,7 +84,7 @@ set shiftwidth=4
 set softtabstop=4
 set t_Co=256
 set laststatus=2
-let g:airline_powerline_fonts = 1
+set scrolloff=5
 
 " jump to the last position when reopening a file
 if has("autocmd")
@@ -112,6 +122,9 @@ let g:airline_theme='kalisi'
 "let g:airline_theme='wombat'
 "let g:airline_theme='zenburn'
 
+""" use powerline fonts
+let g:airline_powerline_fonts = 1
+
 """ syntastic options
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -128,3 +141,29 @@ let indent_guides_color_change_percent = 10
 let indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
 let	g:indent_guides_auto_colors = 0
+
+if v:version > 703 || v:version == 703 && has("patch541")
+  set formatoptions+=j " Delete comment character when joining commented lines
+endif
+
+if &listchars ==# 'eol:$'
+  set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+endif
+
+if &encoding ==# 'latin1' && has('gui_running')
+  set encoding=utf-8
+endif
+
+if has('path_extra')
+  setglobal tags-=./tags tags-=./tags; tags^=./tags;
+endif
+
+if !empty(&viminfo)
+  set viminfo^=!
+endif
+set sessionoptions-=options
+
+" Allow color schemes to do bright colors without forcing bold.
+if &t_Co == 8 && $TERM !~# '^linux\|^Eterm'
+  set t_Co=16
+endif
