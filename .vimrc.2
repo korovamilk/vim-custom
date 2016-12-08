@@ -1,0 +1,339 @@
+""" .vimrc custom file
+""" ops [at] agate [punkt] pw
+""" v.20161208
+set nocompatible              " be iMproved, required
+filetype off                  " required
+syntax on
+set nowrap
+set modelines=1
+set sidescroll=1    " horizontal scrolling by character
+set shell=bash
+
+""" TODO:
++ """  VIMHOME=${HOME}/.vim
++ """  git clone https://github.com/VundleVim/Vundle.vim.git ${VIMHOME}/bundle/Vundle.vim
++ """  vim +PluginInstall +qall
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+" Airline instead of powerline, simple yet great
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'majutsushi/tagbar'
+  
+" Completing engine
+Plugin 'Valloric/YouCompleteMe'
+  
+" Snippets are the love of my life
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+  
+" Browsing files & fuzzy file search
+Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
+  
+" PEP-8 compliance help
+Plugin 'nvie/vim-flake8'
+" Plugin 'klen/python-mode'
+  
+" DVCS : Git, gitgutter for showing the changes beside line numbers
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+  
+" GOlang
+Plugin 'fatih/vim-go'
+
+
+" plugins on GitHub repo
+"Plugin 'tpope/vim-fugitive'
+"Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline-themes'
+Plugin 'gregsexton/MatchTag'
+"Plugin 'honza/vim-snippets'
+Plugin 'mhinz/vim-signify'
+"Plugin 'airblade/vim-gitgutter'
+Plugin 'Raimondi/delimitMate'
+Plugin 'scrooloose/syntastic'
+Plugin 'nathanaelkane/vim-indent-guides'
+"Plugin 'tomasr/molokai'
+Bundle 'elentok/plaintasks.vim'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+"set backspace=indent,eol,start
+set backspace=start,eol,indent
+syntax enable
+
+" Set encoding
+set encoding=utf-8
+
+" F2 toggles row numbers
+set nonumber
+map <silent> <F2> :set invnumber<cr>
+
+" fold comments 
+set fdm=expr
+set fde=getline(v:lnum)=~'^\\s*#'?1:getline(prevnonblank(v:lnum))=~'^\\s*#'?1:getline(nextnonblank(v:lnum))=~'^\\s*#'?1:0
+
+" CTRL+F5 toggles comment folding
+let $unrol=0
+function UnrolMe()
+if $unrol==0
+    :exe "normal zR"
+    let $unrol=1
+else
+    :exe "normal zM"
+    let $unrol=0
+endif
+endfunction
+noremap <C-F5> :call UnrolMe()<CR>
+
+" Airline Hacks
+set laststatus=2                              " without this the status line is not visible
+set ttimeoutlen=50                            " to prevent delay when leaving insert mode
+let g:airline#extensions#tabline#enabled = 1  " it is disabled by default, so
+let g:airline_powerline_fonts=1               " using patched Inconsolata
+let g:airline_theme='luna'            " favourite theme
+let g:rehash256=1
+
+" Colorscheme
+let g:molokai_original=1
+colorscheme molokai
+hi Normal ctermbg=None
+hi LineNr ctermbg=None
+
+
+" Search customisations
+  set hlsearch incsearch ignorecase " highlight search, incremental search and ignore case
+  " double escape for removing search highlights
+  nnoremap <silent> <Esc><Esc> :let @/=""<CR>
+  
+  " File specific hacks
+  autocmd Filetype python set expandtab tabstop=4 shiftwidth=4 softtabstop=4
+  autocmd Filetype htmldjango set expandtab tabstop=2 shiftwidth=2 softtabstop=2
+  autocmd Filetype html set expandtab tabstop=2 shiftwidth=2 softtabstop=2
+  autocmd Filetype javascript set expandtab tabstop=2 shiftwidth=2 softtabstop=2
+  autocmd BufWritePre * :%s/\s\+$//e
+
+  
+  " Backup locations
+  set backup
+  "set backupdir=~/.vim/backup
+  set directory=/tmp
+  
+  " Splitfu
+  " Just navigate around splits vim way
+  nnoremap <C-J> <C-W><C-J>
+  nnoremap <C-K> <C-W><C-K>
+  nnoremap <C-L> <C-W><C-L>
+  nnoremap <C-H> <C-W><C-H>
+  
+  "" Ultisnips
+  let g:UltiSnipsExpandTrigger="<c-e>"
+  let g:UltiSnipsJumpForwardTrigger="<c-b>"
+  let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+  
+  "" Gui Fonts
+  "set guifont=Font\ Awesome\ 8
+
+
+set paste
+set undolevels=200
+set ttyfast
+"set backup
+set backupdir=~/SAFE/vim.backups
+"set hlsearch
+"set incsearch
+"set ignorecase
+set smartcase
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+"set t_Co=256
+"set laststatus=2
+set noruler
+"let g:airline_powerline_fonts = 1
+
+" jump to the last position when reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+" security
+set secure
+set nomodeline
+
+""" dark color themes
+"colorscheme onedark
+"colorscheme tomorrow-night
+"colorscheme molokai
+"colorscheme paraiso
+"colorscheme badwolf
+"colorscheme coda
+"colorscheme darkburn
+"colorscheme darkZ
+
+""" light color themes
+"""colorscheme summerfruit256
+"colorscheme tomorrow
+"colorscheme base16-tomorrow
+"colorscheme carvedwood
+"colorscheme carvedwoodcool
+"colorscheme cloudy
+
+"colorscheme desertEx
+"colorscheme Dim
+"colorscheme dobdark
+"colorscheme dracula
+"colorscheme dusk
+"colorscheme eclm_wombat
+"colorscheme edo_sea
+"colorscheme evening
+"colorscheme freya
+"colorscheme gentooish
+"colorscheme g_rand_1
+"colorscheme g_rand_2
+"colorscheme g_rand_3
+"colorscheme grayorange
+"colorscheme gruvbox
+"colorscheme guardian
+"colorscheme guardian.1
+"colorscheme h80
+"colorscheme harper
+"colorscheme hemisu
+"colorscheme hhazure
+"colorscheme hybrid
+"colorscheme industrial
+"colorscheme inkpot
+"colorscheme jellybeans
+"colorscheme kolor
+"colorscheme lilydjwg_dark
+"colorscheme lucius
+"colorscheme maroloccio
+"colorscheme midnight
+"colorscheme mint
+"colorscheme molokai
+"colorscheme native
+"colorscheme neon
+"colorscheme nightshimmer
+"colorscheme no_quarter
+"colorscheme northland
+"colorscheme onedark
+"colorscheme pacific
+"colorscheme paraiso
+"colorscheme plasticcodewrap
+"colorscheme rainbow_neon
+"colorscheme rdark
+"colorscheme rootwater
+"colorscheme roswell-dark
+"colorscheme sea
+"colorscheme settlemyer
+"colorscheme solarized
+"colorscheme summerfruit256
+"colorscheme tango2
+"colorscheme the-coffee
+"colorscheme the-tree-dark
+"colorscheme Tomorrow-Night-Blue
+"colorscheme Tomorrow-Night-Bright
+"colorscheme Tomorrow-Night-Eighties
+"colorscheme tomorrow-night
+"colorscheme Tomorrow-Night
+"colorscheme tomorrow
+"colorscheme Tomorrow
+"colorscheme twilight
+"colorscheme two2tango
+"colorscheme tyrann_alex
+"colorscheme vesper-dark
+"colorscheme vydark
+"colorscheme watermark
+"colorscheme wombat256
+"colorscheme wombat
+"colorscheme xoria256
+"colorscheme yeller
+"colorscheme zenburn
+
+
+""" vim-airline themes selection
+"let g:airline_theme='bubblegum'
+"let g:airline_theme='distinguished'
+"let g:airline_theme='durant'
+"let g:airline_theme='hybridline'
+"let g:airline_theme='hybrid'
+"let g:airline_theme='jellybeans'
+""""let g:airline_theme='kalisi'
+"let g:airline_theme='laederon'
+"let g:airline_theme='light'
+"let g:airline_theme='lucius'
+"let g:airline_theme='luna'
+"let g:airline_theme='molokai'
+"let g:airline_theme='powerlineish'
+"let g:airline_theme='sol'
+"let g:airline_theme='tomorrow'
+"let g:airline_theme='ubaryd'
+"let g:airline_theme='wombat'
+"let g:airline_theme='zenburn'
+
+""" syntastic options
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" Path/file/command completion.
+set wildmenu
+set wildchar=<Tab>
+set wildmode=list:longest
+set wildignore+=*.o,*.obj,*.pyc,*.aux,*.bbl,*.blg,.git,.svn,.hg
+" Suffixes that get lower priority when doing tab completion for filenames.
+" These files are less likely to be edited.
+set suffixes=.bak,~,.swp,.o,.info,.aux,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
+
+" Code completion.
+set completeopt=longest,menuone
+" Do not search in included/imported files (it slows down completion, mostly
+" on network filesystems).
+set complete-=i
+" Enable omni completion.
+set omnifunc=syntaxcomplete#Complete
+" set tags=./tags,./TAGS,tags,TAGS
+
+" Encoding and end of line.
+" Default file encoding for new files.
+setglobal fenc=utf-8
+" Detect file encoding when opening a file and try to choose from the following
+" encoding list (to check what file encoding was selected run ":set fenc").
+set fencs=ucs-bom,utf-8,cp1250,latin2,latin1
+" Internal encoding used by Vim buffers, help and commands.
+set enc=utf-8
+" Terminal encoding used for input and terminal display.
+set tenc=utf-8
+" End of line (unix EOL is preferred over the dos one and before the mac one).
+set ffs=unix,dos,mac
+
+""" vim-indent-guides options
+hi IndentGuidesOdd  guibg=darkgrey   ctermbg=236
+hi IndentGuidesEven guibg=darkgrey   ctermbg=237
+let indent_guides_color_change_percent = 10
+let indent_guides_guide_size = 1
+let g:indent_guides_enable_on_vim_startup = 1
+let	g:indent_guides_auto_colors = 0
