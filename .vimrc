@@ -167,3 +167,7 @@ set sessionoptions-=options
 if &t_Co == 8 && $TERM !~# '^linux\|^Eterm'
   set t_Co=16
 endif
+
+" Set encoding
+set encoding=utf-8
+
