@@ -14,5 +14,6 @@ echo
 echo "getting files"
 curl -LSso ${HOME}/.vimrc https://raw.githubusercontent.com/korovamilk/vim-custom/master/.vimrc
 echo
+vim +PluginInstall +qall
 echo "done."
 exit 0
