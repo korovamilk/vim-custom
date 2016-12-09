@@ -8,6 +8,10 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+""" TODO:
+"""	$ git clone https://github.com/VundleVim/Vundle.git ~/.vim/bundle/Vundle.vim
+"""	$ vim +PluginInstall +qall
+
 " let Vundle manage Vundle (required)
 Plugin 'VundleVim/Vundle.vim'
 " plugin on GitHub repo
@@ -170,4 +174,3 @@ endif
 
 " Set encoding
 set encoding=utf-8
-
