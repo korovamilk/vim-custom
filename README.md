@@ -10,8 +10,10 @@ curl https://raw.githubusercontent.com/korovamilk/vim-custom/master/vim-customiz
 the above command will:
 * move your existing .vim* files and directories (if any) to ${HOME}/SAFE directory
 * install Vundle:
+```
 $ git clone https://github.com/VundleVim/Vundle.git ~/.vim/bundle/Vundle.vim
 $ vim +PluginInstall 
+```
 * download a small set of vim color themes (see .vimrc for updated list)
 * download my .vimrc
 * autoinstalls all custom vim plugins (see .vimrc for updated list)
