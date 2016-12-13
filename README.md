@@ -33,7 +33,6 @@ This is useful if your vim is already customized and you just want to sync small
   
   ```
   $ curl https://raw.githubusercontent.com/korovamilk/vim-custom/master/vimrc-updater.sh | bash
-  $ vim +PluginInstall +qall
   ```
   
 
