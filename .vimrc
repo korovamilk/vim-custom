@@ -174,3 +174,6 @@ endif
 
 " Set encoding
 set encoding=utf-8
+
+" Fixes garbage characters
+set t_RV=
