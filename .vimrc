@@ -69,7 +69,6 @@ set autoindent
 set backspace=indent,eol,start
 set wrap
 set complete-=i
-set smarttab
 set nrformats-=octal
 
 set paste
@@ -83,9 +82,11 @@ if maparg('<C-L>', 'n') ==# ''
 endif
 set ignorecase
 set smartcase
-set tabstop=4
+set tabstop=8
+set softtabstop=0
 set shiftwidth=4
-set softtabstop=4
+set noexpandtab
+set smarttab
 set t_Co=256
 set laststatus=2
 set scrolloff=5
