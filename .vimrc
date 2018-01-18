@@ -100,12 +100,12 @@ endif
 "colorscheme badwolf
 "colorscheme molokai
 "colorscheme onedark
-colorscheme tomorrow-night
+"colorscheme tomorrow-night
 "colorscheme tomorrow-night-bright
 
 """ light color themes
 "colorscheme summerfruit256
-"colorscheme tomorrow
+colorscheme tomorrow
 
 """ vim-airline themes selection
 "let g:airline_theme='bubblegum'
@@ -145,7 +145,7 @@ hi IndentGuidesEven guibg=darkgrey   ctermbg=237
 let indent_guides_color_change_percent = 10
 let indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
-let	g:indent_guides_auto_colors = 0
+let g:indent_guides_auto_colors = 1
 
 if v:version > 703 || v:version == 703 && has("patch541")
   set formatoptions+=j " Delete comment character when joining commented lines
