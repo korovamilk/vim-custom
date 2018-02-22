@@ -100,11 +100,11 @@ endif
 "colorscheme badwolf
 "colorscheme molokai
 "colorscheme onedark
-colorscheme tomorrow-night
+"colorscheme tomorrow-night
 "colorscheme tomorrow-night-bright
 
 """ light color themes
-"colorscheme summerfruit256
+colorscheme summerfruit256
 "colorscheme tomorrow
 
 """ vim-airline themes selection
