@@ -104,8 +104,8 @@ endif
 "colorscheme tomorrow-night-bright
 
 """ light color themes
-colorscheme summerfruit256
-"colorscheme tomorrow
+"colorscheme summerfruit256
+colorscheme tomorrow
 
 """ vim-airline themes selection
 "let g:airline_theme='bubblegum'
@@ -138,6 +138,10 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+" disable syntastic at start
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
+nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
+
 
 """ vim-indent-guides options
 hi IndentGuidesOdd  guibg=darkgrey   ctermbg=236
