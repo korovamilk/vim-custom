@@ -11,7 +11,7 @@ the above command will:
 * move your existing .vim* files and directories (if any) to ${HOME}/SAFE directory
 * install Vundle:
 ```
-  $ git clone https://github.com/VundleVim/Vundle.git ~/.vim/bundle/Vundle.vim
+  $ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
   $ vim +PluginInstall +qall
 ```
 * download a small set of vim color themes (see .vimrc for updated list)
