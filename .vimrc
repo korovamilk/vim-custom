@@ -14,17 +14,17 @@ call vundle#begin()
 
 " let Vundle manage Vundle (required)
 Plugin 'VundleVim/Vundle.vim'
-" plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+" pluginis on GitHub repo
+Plugin 'airblade/vim-gitgutter'
 Plugin 'gregsexton/MatchTag'
 Plugin 'honza/vim-snippets'
+Plugin 'itchyny/lightline.vim'
 Plugin 'mhinz/vim-signify'
-Plugin 'airblade/vim-gitgutter'
+Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/syntastic'
-Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
 Bundle 'elentok/plaintasks.vim'
 
 " All Plugins must be added before the following line
