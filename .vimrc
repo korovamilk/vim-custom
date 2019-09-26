@@ -1,6 +1,6 @@
 """ .vimrc custom file
 """ ops [at] agate [punkt] pw
-""" v.20161019
+""" v.20190926
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -14,17 +14,19 @@ call vundle#begin()
 
 " let Vundle manage Vundle (required)
 Plugin 'VundleVim/Vundle.vim'
-" pluginis on GitHub repo
+" plugins on GitHub repo
 Plugin 'airblade/vim-gitgutter'
 Plugin 'gregsexton/MatchTag'
 Plugin 'honza/vim-snippets'
-Plugin 'itchyny/lightline.vim'
 Plugin 'mhinz/vim-signify'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
+
+Plugin 'itchyny/lightline.vim'
 Plugin 'tpope/vim-surround'
+
 Bundle 'elentok/plaintasks.vim'
 
 " All Plugins must be added before the following line
@@ -51,6 +53,9 @@ map <silent> <F2> :set invnumber<cr>
 " fold comments (press SPACE to unfold)
 set fdm=expr
 set fde=getline(v:lnum)=~'^\\s*#'?1:getline(prevnonblank(v:lnum))=~'^\\s*#'?1:getline(nextnonblank(v:lnum))=~'^\\s*#'?1:0
+
+" unfold by default
+set foldlevel=50
 
 " CTRL+F5 toggles comment folding
 let $unrol=0
