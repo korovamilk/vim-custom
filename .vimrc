@@ -182,8 +182,23 @@ if &t_Co == 8 && $TERM !~# '^linux\|^Eterm'
   set t_Co=16
 endif
 
-" Set encoding
-set encoding=utf-8
-
 " Fixes garbage characters
 set t_RV=
+
+" specify file formats
+set fileformats=unix,dos
+
+" take backup
+set backup
+
+" specify backup directory
+set backupdir=~/SAFE
+
+" highlights parentheses
+set showmatch
+
+" not insert LF at the end of file
+set binary noeol
+
+" change colors for comments if it's set [ syntax on ]
+highlight Comment ctermfg=LightBlue
